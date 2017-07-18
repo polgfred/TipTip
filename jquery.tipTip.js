@@ -39,7 +39,7 @@
 
      // Setup tip tip elements and render them to the DOM
      if($("#tiptip_holder").length <= 0){
-       var tiptip_holder = $('<div id="tiptip_holder" style="max-width:'+ opts.maxWidth +';"></div>');
+      var tiptip_holder = $('<div id="tiptip_holder"></div>');
       var tiptip_content = $('<div id="tiptip_content"></div>');
       var tiptip_arrow = $('<div id="tiptip_arrow"></div>');
       $("body").append(tiptip_holder.html(tiptip_content).prepend(tiptip_arrow.html('<div id="tiptip_arrow_inner"></div>')));
@@ -100,7 +100,7 @@
         function active_tiptip(){
           opts.enter.call(this);
           tiptip_content.html(typeof org_title == 'function' ? org_title(org_elem) : org_title);
-          tiptip_holder.hide().removeAttr("class").css("margin","0");
+          tiptip_holder.hide().removeAttr("class").css("margin","0").css("max-width", opts.maxWidth);
           tiptip_arrow.removeAttr("style");
 
           var top = parseInt(org_elem.offset()['top']);
